@@ -1,0 +1,262 @@
+/*まずはお決まりのボックスサイズ算出をborer-boxに */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
+}
+
+body {
+  background-color: #33743b;
+  color: white;
+  font-family: Georgia;
+}
+
+.topimage{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.title{
+  font-size: 5vmax;
+  padding-top: 10%;
+}
+
+.sendform {
+    
+}
+
+.img_tree {
+  transform-origin: top center;
+  transform: scale(0.7,0.7);
+}
+
+/*-------------------------------------------------*/
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+.btn--red,
+a.btn--red {
+  color: #fff;
+  background-color: #ab1f2e;
+  /*margin-left: 50%;*/
+}
+.btn--red:hover,
+a.btn--red:hover {
+  color: #fff;
+  background: #ab1f2e;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+/*-------------------------------------------------*/
+
+.header {
+  width: 100%;
+  height: 90px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.header__inner {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 1240px;
+  max-width: calc(100vw - 30px);
+  height: 100%;
+  margin: 0 auto;
+}
+
+/*-------------------------------------------------*/
+
+
+.open {
+	cursor:pointer;
+}
+#pop-up {
+	display: none;
+}
+.overlay {
+	display: none;
+}
+#pop-up:checked + .overlay {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background: rgba(0, 0, 0, 0.6);
+}
+.window {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 90vw;
+	max-width: 360px;
+    padding: 20px;
+	height: 300px;
+	background-color: #fff;
+	border-radius: 4px;
+	align-items: center;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+.close {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	cursor:pointer;
+}
+
+/*-------------------------------------------------*/
+
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+.btn2,
+a.btn2,
+button.btn2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+a.btn-3d-circle {
+  display: block;
+
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 0;
+
+  border-radius: 50%;
+}
+
+.btn-3d-circle-content {
+  display: block;
+  line-height: 100px;
+
+  width: 100px;
+  height: 100px;
+
+  -webkit-transition: all 0.6s;
+
+  transition: all 0.6s;
+
+  border-radius: 50%;
+  background: #f2f5f6;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#e0c284),
+    color-stop(37%, #e0c284),
+    to(#e0c284)
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #e0c284 100%
+  );
+  background: linear-gradient(to bottom, #e0c284 100%);
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+  -webkit-perspective: 150px;
+  perspective: 150px;
+}
+
+.btn-3d-circle:hover .btn-3d-circle-content {
+  -webkit-transform: rotateY(0.5turn) rotateX(-0.03turn);
+  transform: rotateY(0.5turn) rotateX(-0.03turn);
+}
+
+.btn-3d-circle:hover .btn-3d-circle-front {
+  opacity: 0;
+}
+
+.btn-3d-circle:hover .btn-3d-circle-back {
+  top: calc(50% - 2rem);
+  left: calc(50% - 0.75rem);
+
+  opacity: 1;
+}
+
+.btn-3d-circle-back {
+  font-size: 3rem;
+
+  position: absolute;
+  top: 70%;
+  left: 70%;
+
+  -webkit-transition: all 0.3s;
+
+  transition: all 0.3s;
+  letter-spacing: 0;
+
+  opacity: 0;
+}
+
+
+
+/*----CSSポップアップ---------------------------------------------*/

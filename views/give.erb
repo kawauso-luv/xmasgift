@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>UNBOX</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div>
+    <form action="/sendto/<%= @user_id %>" method="post" class="sendform">
+        <input type="text" name="content" id="txt" placeholder="素敵なメッセージプレゼントを贈ろう"><br>
+        <input type="submit" value="送る！">
+    </form>
+    </div>
+      <script>
+        const form = document.querySelector(".sendform");
+        
+        form.addEventListener("submit", async function(e) {
+          e.preventDefault();
+          
+          await fetch(form.action, {
+            method: "POST", 
+            data: new FormData(form)
+          })
+          
+          alert('送信しました');
+          const imput = document.querySelector("#txt");
+          imput.value = "";
+          
+        })
+      </script>
+</body>
+</html>

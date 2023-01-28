@@ -10,18 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_12_064932) do
+ActiveRecord::Schema.define(version: 2022_11_12_070839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "mutewords", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "muteword"
+  end
+
   create_table "presents", force: :cascade do |t|
-    t.string "sendto"
+    t.integer "sendto_id"
     t.text "content"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "twitter_id"
+    t.string "name"
     t.text "bio"
   end
 

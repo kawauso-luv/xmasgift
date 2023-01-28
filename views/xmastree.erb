@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>UNBOX</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div  style="text-align: center" class="presenttree">
+    <img src="/439_20221210193051.png"  width="653" height="800" usemap="#ImageMap" alt="クリスマスツリー"  class="img_tree"/>
+      <map name="ImageMap">
+      <% @presents.each_with_index do |present, num| %>
+        <area shape="poly" coords="<%= @coords[num] %>" href="/content/<%= present.id %>" alt="" />
+      <% end %>
+      </map>
+    </div>
+  </div>
+  <!-- myページへのリンクボタン -->
+ <a href="/mypage" class="btn2 btn-3d-circle">
+  <span class="btn-3d-circle-content">
+    <span class="btn-3d-circle-front">Back</span>
+  </span>
+  <span class="btn-3d-circle-back"><i class="fas fa-mouse-pointer"></i></span>
+</a>
+
+</body>
+</html>
