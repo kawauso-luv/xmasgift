@@ -1,23 +1,19 @@
-<header class="header">
-  <div class="header__inner">
-    <h1 class="header__siteTitle"><a href="/">UNBOX</a></h1>
-      <div>
-        <nav>
-          <ul>
-            <% if !current_user.nil? %>
-              <li>
-                Hello,<%= @user.name %>
-              </li>
-              <li>
-                <a href="/signout" class="btn btn--red btn--radius">ログアウト</a>
-              </li>
-            <% else %>
-              <li>
-                <a href="/signin/twitter" class="btn btn--red btn--radius">Twitterでログイン</a>
-              </li>
-            <% end %>
-          </ul>
-        </nav>
+<nav>
+      <div class="appname">
+        Unbox
       </div>
-    </div>
-</header>
+      <div class="space"></div>
+      <% if !current_user.nil? %>
+      <div class="username">
+        Hello,<%= @user.name %>
+      </div>
+      <div class="login">
+        <a href="/signout" class="btn btn--red btn--radius">ログアウト</a>
+      </div>
+      <% else %>
+      <div class="login">
+        <a href="/signin/twitter" class="btn btn--red btn--radius">Twitterでログイン</a>
+      </div>
+      <% end %>
+</nav>
+<hr></hr>

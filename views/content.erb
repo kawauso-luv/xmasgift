@@ -2,15 +2,50 @@
 <html lang="ja">
 <head>
   <title>UNBOX</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://kit.fontawesome.com/2b2186e12e.js" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 </head>
 <body>
+  <%= erb :navi %>
     <!--いれるもの！-->
     <!--メッセージ（文章：画像化されてるとうれしい）-->
     <!--なんか囲ってる箱-->
     <!--画像化するなら→保存ボタン-->
-    
+    <div class="heightspace"></div>
     <!--一旦contentだけ表示-->
-    <p><%= @presents.content %></p>
+    <div class="box">
+      <div class="heightspace"></div>
+      <div class="content">
+        <p><%= @presents.content %></p>
+      </div>
+      <div class="heightspace"></div>
+      
+      <div class="download-btn">
+	      <a>画像としてDL</a>
+      </div>
+      
+      <div class="heightspace"></div>
+      
+    </div>
+    <div class="heightspace"></div>
+    
+    <div class="toxmastree">
+      <a href="/christmastree" class="btn_13">XmasTree</a>
+    </div>
+    
+    <script>
+      var btn = document.querySelector(".download-btn");
+      btn.addEventListener("click",() => {
+        html2canvas(document.querySelector(".content")).then(canvas => { 
+          let downloadEle = document.createElement("a");
+          downloadEle.href = canvas.toDataURL("image/png");
+          downloadEle.download = "canvas.png";
+          downloadEle.click();
+        });
+      })
+    </script>
+    
 </body>
 </html>

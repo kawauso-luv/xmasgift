@@ -111,12 +111,13 @@ get '/christmastree' do
 end
 
 get '/content/:id' do
+  @user = User.find(session[:user])
   @presents = Present.find_by(id: params[:id])
   erb :content
 end  
 
 get '/signout' do
-  session.delete(:user_id)
+  session.destroy
   redirect '/'
 end
 

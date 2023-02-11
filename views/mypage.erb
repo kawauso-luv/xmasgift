@@ -10,21 +10,11 @@
 </head>
 <body>
   <%= erb :navi %>
-  <!-- Twitterログインとログアウトボタン -->
-  <!--<a href="/signin/twitter" class="btn btn--red btn--radius">twitterでログイン</a>-->
-  <a href="/signout" class="btn btn--red btn--radius">ログアウト</a>
-  <a href="/sendto/<%= @user.id %>" class="btn btn--red btn--radius">メッセ</a>
   
   <!-- 受信ページへのリンクボタン -->
-  <a href="/christmastree" class="btn2 btn-3d-circle">
-  <span class="btn-3d-circle-content">
-    <span class="btn-3d-circle-front">XmasTree</span>
-  </span>
-  <span class="btn-3d-circle-back"><i class="fas fa-mouse-pointer"></i></span>
-</a>
 
-<!-- アカウント名表示 -->
-<h2>Hello,<%= @user.name %></h2>
-
+<div class="toxmastree">
+  <a href="/christmastree" class="btn_13">XmasTree</a>
+</div>
 </body>
 </html>
