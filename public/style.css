@@ -27,16 +27,20 @@ body {
 
 .topimage{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    height:100%;
 }
 
 .title{
+  display: flex;
   font-size: 5vmax;
-  padding-top: 10%;
 }
 
-.sendform {
-    
+.image{
+  display: flex;
+  margin:0px 20px 0px;
+  height:90vh;
 }
 
 .img_tree {
