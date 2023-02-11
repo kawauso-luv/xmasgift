@@ -98,6 +98,7 @@ post '/sendto/:user_id' do
 end
 
 get '/sendto/:user_id' do
+  @user = User.find(session[:user])
   @user_id = params[:user_id]
   erb :give
 end

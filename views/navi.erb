@@ -5,7 +5,7 @@
       <div class="space"></div>
       <% if !current_user.nil? %>
       <div class="username">
-        Hello,<%= @user.name %>
+        <a href="/mypage">Hello,<%= @user.name %></a>
       </div>
       <div class="login">
         <a href="/signout" class="btn btn--red btn--radius">ログアウト</a>

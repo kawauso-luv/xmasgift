@@ -193,8 +193,41 @@ a.btn_13:hover {
     color: #ab1f2e;
 }
 .download-btn a:hover {
-  font-size: 16px;
-    color: #FFF;
+  font-size: 17px;
+}
+
+/*-------------------------------------------------*/
+/*送信ページ*/
+.cp_iptxt {
+	position: relative;
+	width: 80%;
+	margin:30px auto;
+}
+.cp_iptxt #txt {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.6em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #ab1f2e;
+	border: 2px solid #e0c284;
+	border-radius: 4px;
+	min-height: 200px;
+}
+#txt:focus {
+	border: 2px solid #e0c284;
+	outline: none;
+	box-shadow: 0 0 7px 2px rgba(218,60,65, .5);
+}
+.send-btnbox{
+  display:flex;
+  margin-top:10px;
+  justify-content:end;
+}
+
+.send-btnbox input{
+  border:none;
 }
 
 /*-------------------------------------------------*/
@@ -220,8 +253,10 @@ nav {
   flex-grow:1;
 }
 
-.username{
+.username a{
   font-size: 15px;
+  text-decoration: none;
+  color:white;
 }
 
 .login{
