@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>UNBOX</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://kit.fontawesome.com/2b2186e12e.js" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body class="body">
+ <%= erb :navi %>
+ 
+ <!--<form action="/signin" method="post">-->
+ <!--    <input type="text" name="mail" placeholder="Email"><br>-->
+ <!--    <input type="password" name="password" placeholder="パスワード"><br>-->
+ <!--    <input type="suubmit" value="ログイン">-->
+ <!--</form>-->
+ 
+ <!-- <div class="">-->
+ <!--   <form action="/signup" method="post" class="sendform">-->
+ <!--     <input type="text" name="mail" placeholder="Email"><br>-->
+ <!--     <input type="password" name="password" placeholder="パスワード"><br>-->
+ <!--     <input type="password" name="password_confirmation" placeholder="パスワードの確認">-->
+ <!--     <div class="send-btnbox"><input type="suubmit" class="btn btn--red btn--radius" value="登録"></div>-->
+ <!--   </form>-->
+ <!-- </div>-->
+ 
+  
+  <div class="login-page">
+  <div class="form">
+    <form action="/signup" method="post" class="register-form">
+      <input type="text" name="mail" placeholder="Email"><br>
+      <input type="password" name="password" placeholder="パスワード"><br>
+      <input type="password" name="password_confirmation" placeholder="パスワードの確認">
+      <div><input type="submit" class="btn btn--red btn--radius" value="登録"></div>
+      <p class="message">登録済みの方は <a href="#">ログイン</a></p><br>
+      <a href="/signin/twitter"><img src="/Twitter social icons - rounded square - blue.png" class="twittericon"></a>
+    </form>
+    <form class="login-form" action="/signin" method="post">
+      <input type="text" name="mail" placeholder="Email"><br>
+     <input type="password" name="password" placeholder="パスワード"><br>
+      <div><input type="submit" class="btn btn--red btn--radius" value="ログイン"></div>
+      <p class="message">新規ユーザーですか？<a href="#">新規登録</a></p><br>
+      <a href="/signin/twitter"><img src="/Twitter social icons - rounded square - blue.png" class="twittericon"></a>
+    </form>
+  </div>
+</div>
+<script>
+  $('.message a').click(function(){
+   
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    
+  });
+</script>
+  
+</body>
+</html>

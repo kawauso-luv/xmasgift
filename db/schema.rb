@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 2022_11_12_070839) do
     t.string "twitter_id"
     t.string "name"
     t.text "bio"
+    t.string "mail"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

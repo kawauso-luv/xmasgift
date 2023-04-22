@@ -1,3 +1,4 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300);*/
 /*まずはお決まりのボックスサイズ算出をborer-boxに */
 *,
 *:before,
@@ -49,13 +50,75 @@ body {
 }
 
 /*-------------------------------------------------*/
-/*mypage*/
-
+/*ずっといるやつ*/
 .toxmastree{
   position:fixed;
   bottom:50px;
   right:36px;
 }
+
+/*mypage*/
+
+/*マイページのタブ*/
+#nav-mypage{
+  display: flex;
+  justify-content: center;
+}
+
+/* ▼タブの中身 */
+#tabbody div {
+   border: 1px solid black; /* 枠線：黒色の実線を1pxの太さで引く */
+   margin-top: -1px;        /* 上側にあるタブと1pxだけ重ねるために「-1px」を指定 */
+   padding: 1em;            /* 内側の余白量 */
+   position: relative;      /* z-indexを調整するために必要 */
+   z-index: 0;              /* 重なり順序を「最も背面」にするため */
+}
+
+/*== 下線が伸びて背景に変わる　*/
+.btnlinestretches3{
+    /*線の基点とするためrelativeを指定*/
+  position:relative;
+    /*ボタンの形状*/  
+  color:#fff;
+  padding: 10px 30px;
+  
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
+}
+
+/*テキストの設定*/
+.btnlinestretches3 span{
+    /*テキストを前面に出すためz-indexの値を高く設定*/
+  position:relative;
+  z-index: 2;
+}
+
+.btnlinestretches3:hover span{
+  color: #000;
+}
+
+/*線の設定*/
+.btnlinestretches3::after {
+  content:'';
+    /*絶対配置で線の位置を決める*/
+  position:absolute;
+  z-index:1;
+  bottom:0;
+  left:0;
+    /*線の形状*/
+  background:#e0c284;
+  width:100%;
+  height:3px;
+    /*アニメーションの指定*/
+  transition:all 0.3s ease-in-out;
+}
+
+/*線が伸びて背景に*/
+.btnlinestretches3:hover::after {
+  height:100%;
+}
+
 
 /*-------------------------------------------------*/
 /*コンテンツページ*/
@@ -89,6 +152,106 @@ body {
 }
 
 /*-------------------------------------------------*/
+/*サインアップページ*/
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form .btn--red {
+  color: #fff;
+  background-color: #ab1f2e;
+}
+
+/*.form button:hover,.form button:active,.form button:focus {*/
+/*  background: #43A047;*/
+/*}*/
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+.body {
+  /*background: #76b852;*/
+  /*background: rgb(141,194,111);*/
+  /*background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);*/
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+.twittericon {
+  display: block;
+  margin: auto;
+  width:50px;
+  height:50px;
+}
+
+/*-------------------------------------------------*/
+
+
 
 .btn,
 a.btn,
@@ -248,6 +411,7 @@ nav {
 }
 
 .appname{
+  font-family: Georgia;
   font-size: 40px;
   margin: 15px;
   padding: 0px;

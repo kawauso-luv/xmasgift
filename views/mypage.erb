@@ -12,9 +12,75 @@
   <%= erb :navi %>
   
   <!-- 受信ページへのリンクボタン -->
+<div class="heightspace"></div>
+
+<!--<h1 style="text-align: center">クリスマスツリーの下にプレゼントが届いているかも？見に行ってみよう！</h1>-->
+<p id="nav-mypage">
+  <a href="#tabpage1" class="btnlinestretches3"><span>プロフィール</span></a>
+  <a href="#tabpage2" class="btnlinestretches3"><span>受け取ったプレゼントボックス</span></a>
+  <a href="#tabpage3" class="btnlinestretches3"><span>送ったプレゼント</span></a>
+</p>
+
+<div id="tabbody">
+   <div id="tabpage1">
+     わぁ！
+   </div>
+   
+   <div id="tabpage2">
+     プレゼントだよ
+   </div>
+   
+   <div id="tabpage3">
+     20222年以降実装予定
+   </div>
+</div>
+
+
+
+
 
 <div class="toxmastree">
   <a href="/christmastree" class="btn_13">XmasTree</a>
 </div>
+
+
+<script type="text/javascript">
+  //対象要素を得る
+  var tabs = document.getElementById('nav-mypage').getElementsByTagName('a');
+  var pages = document.getElementById('tabbody').getElementsByTagName('div');
+  
+  //タブの切り替え処理
+  function changeTab() {
+    //href属性値から対象のid名を抜き出す
+    var targetid = this.href.substring(this.href.index0f('#')+1.this.href.lengh);
+    
+    //指定のタブページだけを表示する
+    for(var i = 0; i < pages.lengh; i++){
+      if(pages[i].id != targetid){
+        pages[i].style.display = "none";
+      }else{
+        pages[i].style.display = "black";
+      }
+    }
+    
+    //クリックされたタブを前面に表示する
+    for(var i = 0; i < tabs.lengh; i++){
+      tabs[i].style.zIndex = "0";
+    }
+    this.style.zIndex = "10";
+    
+    //ページ偏移しないようにfalseを返す
+    return false;
+  }
+  
+  //すべてのタブに対して、クリック時にchangeTab関数が実行されるように指定する
+  for(var i = 0; i<tabs.lengh; i++){
+    tabs[i].onclick = changeTab;
+  }
+  
+  //最初は先頭タブを選択しておく
+  tabs[0].onclick();
+</script>
+
 </body>
 </html>

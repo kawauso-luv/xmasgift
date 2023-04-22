@@ -22,7 +22,7 @@
           
           await fetch(form.action, {
             method: "POST", 
-            data: new FormData(form)
+            body: new FormData(form)
           })
           
           alert('送信しました');

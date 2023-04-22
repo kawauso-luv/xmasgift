@@ -63,19 +63,31 @@ get '/twitter/callback' do
     response = request.run
     
     json = JSON.parse(response.response_body)
-    user = User.find_or_create_by(twitter_id: json["data"]["id"])
-    user = User.find_or_create_by(name: json["data"]["name"])
+    user = User.find_or_create_by(twitter_id: json["data"]["id"], name: json["data"]["name"])
     session[:user] = user.id
     redirect '/mypage'
     
 end
 
 
-get '/signup' do
-  erb :signup
+get '/signin' do
+  erb :signin
 end
 
 post '/signup' do
+  user = User.create(mail: params[:mail], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:mail])
+  if user.persisted?
+    session[:user] = user.id
+  end
+  redirect '/mypage'
+end
+
+post '/signin' do
+  user = User.find_by(mail: params[:mail])
+  if user && user.authenticate(params[:password])
+    session[:user] = user.id
+  end
+  redirect '/mypage'
 end
 
 
@@ -114,6 +126,7 @@ end
 get '/content/:id' do
   @user = User.find(session[:user])
   @presents = Present.find_by(id: params[:id])
+  p @presents.content
   erb :content
 end  
 
