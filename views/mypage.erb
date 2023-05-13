@@ -27,7 +27,8 @@
    </div>
    
    <div id="tabpage2">
-     プレゼントだよ
+     <!--受け取った内容-->
+     
    </div>
    
    <div id="tabpage3">
@@ -52,19 +53,20 @@
   //タブの切り替え処理
   function changeTab() {
     //href属性値から対象のid名を抜き出す
-    var targetid = this.href.substring(this.href.index0f('#')+1.this.href.lengh);
+    var targetid = this.href.substring(this.href.indexOf('#')+1,this.href.length);
+    console.log(1)
     
     //指定のタブページだけを表示する
-    for(var i = 0; i < pages.lengh; i++){
-      if(pages[i].id != targetid){
-        pages[i].style.display = "none";
-      }else{
-        pages[i].style.display = "black";
+    for(var i = 0; i < pages.length; i++) {
+      if( pages[i].id != targetid ) {
+         pages[i].style.display = "none";
+      }else {
+         pages[i].style.display = "block";
       }
-    }
+   }
     
     //クリックされたタブを前面に表示する
-    for(var i = 0; i < tabs.lengh; i++){
+    for(var i = 0; i < tabs.length; i++){
       tabs[i].style.zIndex = "0";
     }
     this.style.zIndex = "10";
@@ -74,9 +76,10 @@
   }
   
   //すべてのタブに対して、クリック時にchangeTab関数が実行されるように指定する
-  for(var i = 0; i<tabs.lengh; i++){
+  for(var i = 0; i<tabs.length; i++){
     tabs[i].onclick = changeTab;
   }
+  
   
   //最初は先頭タブを選択しておく
   tabs[0].onclick();

@@ -57,6 +57,15 @@ body {
   right:36px;
 }
 
+
+/*12/25まで待機*/
+h1 {
+  font-size: 80px;
+  text-align:center;
+  margin-top: 50px;
+}
+
+
 /*mypage*/
 
 /*マイページのタブ*/

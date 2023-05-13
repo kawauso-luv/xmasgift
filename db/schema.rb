@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_11_12_070839) do
   end
 
   create_table "presents", force: :cascade do |t|
+    t.integer "sendfrom_id"
     t.integer "sendto_id"
     t.text "content"
   end
