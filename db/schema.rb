@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2022_11_12_070839) do
     t.integer "sendfrom_id"
     t.integer "sendto_id"
     t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

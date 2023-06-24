@@ -10,7 +10,7 @@
   
   <div class="cp_iptxt">
     <form action="/sendto/<%= @user_id %>" method="post" class="sendform">
-        <textarea name="content" id="txt" placeholder="素敵なメッセージプレゼントを贈ろう"></textarea><br>
+        <textarea required name="content" id="txt"  placeholder="素敵なメッセージプレゼントを贈ろう"></textarea><br>
         <div class="send-btnbox"><input type="submit" class="btn btn--red btn--radius" value="送る！"></div>
     </form>
     </div>

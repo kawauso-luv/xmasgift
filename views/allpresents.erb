@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>UNBOX</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://kit.fontawesome.com/2b2186e12e.js" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+<body>
+  <%= erb :navi %>
+  <div class="heightspace"></div>
+    <!--入れるもの-->
+    <!--すべての囲い-->
+    <!--プレゼントの画像-->
+    <!--内容の囲い-->
+    <!--内容-->
+    <!--受け取ってるメッセージ分表示する：ループ処理-->
+</head>
+<body>
+  
+<div class="box_all">
+  <div class="content_all">
+    <span class="emoji">🎁</span>
+    <p>Merry Christmas🎄</p> 
+  </div>
+</div>
+  
+<% @presents.each do |present| %>
+<div class="box_all">
+  <div class="content_all">
+    <span class="emoji">🎁</span>
+    <p><%= present.content %></p> 
+  </div>
+</div>
+<% end %>
+
+    
+    <div class="toxmastree">
+      <a href="/mypage" class="btn_13">Mypage</a>
+    </div>
+    
+</body>
+</html>

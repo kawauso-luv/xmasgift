@@ -94,7 +94,14 @@ end
 get '/mypage' do
   @user = User.find(session[:user])
   @user_id = params[:user_id]
+  today = Date.today
+  target_date = Date.new(Date.today.year, 6, 24) 
+  @days_left = (target_date - today).to_i # 残り日数を計算
+  @presentstome = Present.where(sendto_id: session[:user], created_at: ..(Time.now.beginning_of_year - 1.second))
+  @presentsforu = Present.where(sendfrom_id: session[:user])
   puts session[:user]
+  # p @presentstome
+  # p @presentsforu
   erb :mypage
 end
 
@@ -105,8 +112,7 @@ end
 
 post '/sendto/:user_id' do
   p params[:user_id]
-  User.find(session[:user]).presents.create(content: params[:sendfrom_id])
-  User.find(params[:user_id]).presents.create(content: params[:content])
+  User.find(params[:user_id]).presents.create(sendfrom_id: session[:user], content: params[:content])
   redirect '/sendto/' + params[:user_id]
 end
 
@@ -123,13 +129,13 @@ get '/christmastree' do
   p @presents.length
   # 2. if 12月25日の時にPresentからユーザーに紐付いているプレゼントを取得する
   today = Date.today
-  target_date = Date.new(Date.today.year, 12, 25) 
+  target_date = Date.new(Date.today.year, 6, 24) 
   @days_left = (target_date - today).to_i # 残り日数を計算
   p @days_left
 
   # 12/25 になったら
   if today == target_date
-    @presents = Present.where(sendto: session[:user])
+    @presents = Present.where(sendto_id: session[:user])
   end
   
   @user = User.find(session[:user]).twitter_id
@@ -142,6 +148,15 @@ get '/content/:id' do
   @presents = Present.find_by(id: params[:id])
   p @presents.content
   erb :content
+end  
+
+get '/allpresents' do
+  @user = User.find(session[:user])
+  @presents = Present.where(sendto_id: session[:user])
+  @presents.each do |content|
+    p content
+  end  
+  erb :allpresents
 end  
 
 get '/signout' do

@@ -23,16 +23,46 @@
 
 <div id="tabbody">
    <div id="tabpage1">
-     わぁ！
+    ユーザー名：<%= @user.name %><br>
+    メールアドレス：<%= @user.mail %><br>
+    <% if @days_left == 0 %>
+    <div class="tab1-o" style="text-align: center">
+        <h1>𓂃꙳⋆ MERRY XMAS 🦌 ꙳⋆𓂃</h1><br>
+      <h2>プレゼントが届いているかも？</h2>
+      </div>
+    <% else %>
+      <div class="tab1-x" style="text-align: center">
+        <h1>クリスマスまで残り<%= @days_left %>日</h1><br>
+        <img src="/tonakai_kazaritsuke.png" width="300px" alt="">
+      </div>
+      
+    <% end %>
    </div>
    
    <div id="tabpage2">
+     <div class="heightspace"></div>
      <!--受け取った内容-->
+     <% @presentstome.each do |present| %>
+      <div class="box_all">
+        <div class="content_all">
+          <span class="emoji">💝</span>
+          <p><%= present.content %></p> 
+        </div>
+      </div>
+      <% end %>
      
    </div>
    
    <div id="tabpage3">
-     20222年以降実装予定
+     <div class="heightspace"></div>
+     <% @presentsforu.each do |present| %>
+      <div class="box_all">
+        <div class="content_all">
+          <span class="emoji">🎅</span>
+          <p><%= present.content %></p> 
+        </div>
+      </div>
+      <% end %>
    </div>
 </div>
 
@@ -47,8 +77,8 @@
 
 <script type="text/javascript">
   //対象要素を得る
-  var tabs = document.getElementById('nav-mypage').getElementsByTagName('a');
-  var pages = document.getElementById('tabbody').getElementsByTagName('div');
+  var tabs = document.getElementById('nav-mypage').children;
+  var pages = document.getElementById('tabbody').children;
   
   //タブの切り替え処理
   function changeTab() {
@@ -58,18 +88,25 @@
     
     //指定のタブページだけを表示する
     for(var i = 0; i < pages.length; i++) {
+      console.log(pages[i])
+      console.log(targetid)
       if( pages[i].id != targetid ) {
          pages[i].style.display = "none";
       }else {
          pages[i].style.display = "block";
       }
    }
+   
     
     //クリックされたタブを前面に表示する
     for(var i = 0; i < tabs.length; i++){
       tabs[i].style.zIndex = "0";
+      tabs[i].style.backgroundColor = "#33743b";
+      tabs[i].style.color = "#fff";
     }
     this.style.zIndex = "10";
+    this.style.backgroundColor = "#e0c284";
+    this.style.color = "#000";
     
     //ページ偏移しないようにfalseを返す
     return false;

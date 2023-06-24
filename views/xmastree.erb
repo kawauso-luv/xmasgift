@@ -5,19 +5,23 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <% if @presents.length == 0 %>
-    <h1>クリスマスまで残り<%= @days_left %>日</h1>
-    <h1>Please Wait Until Xmas</h21>
-  <% else %>
-    <div  style="text-align: center" class="presenttree">
-      <img src="/439_20221210193051.png"  width="653" height="800" usemap="#ImageMap" alt="クリスマスツリー"  class="img_tree"/>
+  <% if @days_left == 0 %>
+    <div class="presenttree">
+      <div class="imagewrap">
+        <img src="/439_20221210193051.png" usemap="#ImageMap" alt="クリスマスツリー"  class="img_tree"/>
         <map name="ImageMap">
         <% @presents.each_with_index do |present, num| %>
           <area shape="poly" coords="<%= @coords[num] %>" href="/content/<%= present.id %>" alt="" />
         <% end %>
         </map>
       </div>
+      <div>
+        <a href="/allpresents" class="btn btn-border">+ もっと見る</a>
+      </div>
     </div>
+  <% else %>
+    <h1>クリスマスまで残り<%= @days_left %>日</h1>
+    <h1>Please Wait Until Xmas</h21>
   <% end %>
   <!-- myページへのリンクボタン -->
   <div class="toxmastree">
