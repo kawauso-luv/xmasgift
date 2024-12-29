@@ -266,9 +266,9 @@ h1 {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 360px;
+  max-width: 370px;
   margin: 0 auto 100px;
-  padding: 45px;
+  padding: 38px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

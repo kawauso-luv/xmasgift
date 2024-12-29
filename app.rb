@@ -86,6 +86,9 @@ post '/signin' do
   user = User.find_by(mail: params[:mail])
   if user && user.authenticate(params[:password])
     session[:user] = user.id
+  else
+    flash[:error] = "アカウントが見つからないか、パスワードが間違っています。"
+    redirect '/signin'
   end
   redirect '/mypage'
 end
@@ -95,7 +98,7 @@ get '/mypage' do
   @user = User.find(session[:user])
   @user_id = params[:user_id]
   today = Date.today
-  target_date = Date.new(Date.today.year, 12, 25) 
+  target_date = Date.new(Date.today.year, 12, 29) 
   @days_left = (target_date - today).to_i # 残り日数を計算
   @presentstome = Present.where(sendto_id: session[:user], created_at: ..(Time.now.beginning_of_year - 1.second))
   @presentsforu = Present.where(sendfrom_id: session[:user])
@@ -129,7 +132,7 @@ get '/christmastree' do
   p @presents.length
   # 2. if 12月25日の時にPresentからユーザーに紐付いているプレゼントを取得する
   today = Date.today
-  target_date = Date.new(Date.today.year, 12, 25) 
+  target_date = Date.new(Date.today.year, 12, 29) 
   @days_left = (target_date - today).to_i # 残り日数を計算
   p @days_left
 

@@ -40,6 +40,7 @@
     <form class="login-form" action="/signin" method="post">
       <input type="text" name="mail" placeholder="Email"><br>
      <input type="password" name="password" placeholder="パスワード"><br>
+     <% if flash[:error] %><p style="color: red;"><%= flash[:error] %></p><% end %>
       <div><input type="submit" class="btn btn--red btn--radius" value="ログイン"></div>
       <p class="message">新規ユーザーですか？<a href="#">新規登録</a></p><br>
       <a href="/signin/twitter"><img src="/Twitter social icons - rounded square - blue.png" class="twittericon"></a>
